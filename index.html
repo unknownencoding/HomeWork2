@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework_less2</title>
+    <script src="./scrypt.js"></script>
+    <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./task5.js">
+</head>
+<body>
+
+    <p> Задача 0. Обчислити значення виразів</p>
+    <p>S1=a+12+b</p>
+    <script>
+    let a = parseInt(prompt('введідть значення а'))
+    let b = parseInt(prompt('введідть значення b'))
+    let c = parseInt(prompt('введідть значення c'))
+
+        let S1 = a+12+b
+        document.write(`S1=${S1}`) 
+    </script>
+    <p> \(S2=\sqrt{(\frac{a+b}{2a}}\))</p>
+    <script>
+        let S2 = Math. sqrt((a+b)/(2*a))
+        document.write(`S2=${S2}`)
+    </script>
+    <p>\(S3=\sqrt[3]{(a+b)c}\)</p>
+    <script>
+        let S3 = Math.cbrt((a+b)*c)
+        document.write(`S3=${S3}`)
+    </script>
+    <p>\(S4=\sin⁡(a-b)\)</p>
+    <script>
+        let x = a - b;
+        let S4 = Math.sin(x)
+        document.write(`S4=${S4}`)
+    </script>
+
+    <p>Задача 1. Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+    </p>
+<script>
+    let sum = a + b
+    let mult = a * b
+    let division = a/b
+    
+    document.write(`
+    <table style="border:1px">
+        <tr>
+            <td>сумa</td>
+            <td>добуток</td>
+            <td>часткa</td>
+        </tr>    
+        <tr>
+            <td>${sum}</td>
+            <td>${mult}</td>
+            <td>${division.toFixed(2)}</td>
+        </tr>
+    </table>
+    `)
+    </script>
+
+         <p>Задача 2. Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.</p>
+    <script>
+    let birdsYear = parseInt(prompt('введіть рік народження'));
+    let now = new Date();
+    let todayYear = now.getFullYear();
+    let yearsOld = todayYear - birdsYear;
+    document.write( yearsOld)
+    </script>
+
+<p> Задача 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості</p>
+<script>
+let price = a;
+let quantity = b;
+let totalCost = a * b;
+document.write(`загальнa вартість: ${totalCost} грн.`)
+let tax = totalCost * 0.05;
+document.write(` в тому числіПДВ: ${tax.toFixed(2)} грн.`)
+</script> 
+
+
+<p> Задача 4. Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.</p>
+<script>
+    let lenght = parseInt(prompt(`Введіть довжину у сантиметрах`))
+    let metr = lenght/100;
+    let KM = metr/1000 && lenght/100000;
+    document.write(`Задана довжина становить - ${metr} метрів, або - ${KM} кілометрів.`)
+</script> 
+
+<p>Задача 5. Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</p>
+
+<script>
+   
+const d = new Date();
+let Hours = d.getHours();
+let Minutes = d.getMinutes();
+let Seconds = d.getSeconds();
+let calcSecStartDay =((Hours*60+Minutes)*60)+Seconds;
+let secToMin = Math.floor((calcSecStartDay% 3600) / 60);
+let minToHour = Math.floor(calcSecStartDay/3600) % 24;
+
+document.write(`На момент розрахунку з початку доби пройшло ${calcSecStartDay} секунд. Що становить ${minToHour} год і ${secToMin} хв.`);
+document.write(`Для порівняяня значення з Date:${Hours}год. ${Minutes}хв. ${Seconds}cек. `);
+
+</script>
+
+
+<p>Задача 6. З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.<br>
+     Обчислити вартість кожного товару окремо та загальну вартість. <br>
+     Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
+<script>
+let position1 = parseFloat(prompt('введіть вартість товару')) * parseFloat(prompt('введіть кількість товару'))
+let position2 = parseFloat(prompt('введіть вартість товару')) * parseFloat(prompt('введіть кількість товару'))
+let position3 = parseFloat(prompt('введіть вартість товару')) * parseFloat(prompt('введіть кількість товару'))
+let totalPrice = position1+position2+position3;
+document.write(`
+    <table style="border:hidden">
+        <tr>
+            <td>Найменування:</td>
+            <td>Вартість:</td>
+        </tr>   
+        <tr>
+            <td>Товар 1</td>
+            <td>${position1}</td>
+        </tr>
+        <tr>
+            <td>Товар 2</td>
+            <td>${position2}</td>
+        </tr>
+        <tr>
+            <td>Товар 3</td>
+            <td>${position3}</td>
+        </tr>
+        <tr>
+            <td>загальну вартість</td>
+            <td>${totalPrice}</td>
+        </tr>   
+    </table>
+    `)
+</script>
+
+
+<p>Задача 7. Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).</p>
+<script>
+    let min = 1; 
+    let max = 12;
+    let w = Math.floor(Math.random() * (max - min)) + min;
+    document.write(`знайдено випадковий номера місяця = ${w} `)
+    let min2 = 0;
+    let max2 = 6;
+    let q = Math.floor(Math.random() * (max2 - min2)) + min2;
+    document.write(`і випадковий номер дня ${q}. `)
+    
+    let sum7 = w + q;
+    document.write(` Їх сума = ${sum7}`)
+ 
+
+</script>
+</body>
+</html>
